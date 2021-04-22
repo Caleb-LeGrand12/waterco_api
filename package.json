@@ -13,7 +13,7 @@
     "Project",
     "API"
   ],
-  "author": "Bobson Rugambwa",
+  "author": "Caleb Mugisha",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
