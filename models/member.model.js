@@ -1,29 +1,34 @@
-const Sequelize = require("sequelize");
+import Sequelize from "sequelize";
+import { sequelize } from "../db/dbConnect.js";
 
 const Members = sequelize.define(
-  "members",
+  "member",
 
   {
-    member_id: {
+    Member_ID: {
       autoIncrement: true,
-      type: Sequelize.INT,
+      type: Sequelize.INTEGER,
       allowNull: false,
       primaryKey: true,
     },
-    member_name: {
+    First_name: {
       type: Sequelize.STRING(255),
       allowNull: false,
     },
-    member_email: {
+    Last_name: {
       type: Sequelize.STRING(255),
       allowNull: false,
     },
-    member_phonenumber: {
-      type: Sequelize.INT,
+    Member_email: {
+      type: Sequelize.STRING(255),
+      allowNull: false,
+    },
+    Member_password: {
+      type: Sequelize.INTEGER,
       allowNull: false,
 
       sequelize,
-      tableName: "members",
+      tableName: "member",
       timestamps: true,
       indexes: [
         {

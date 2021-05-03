@@ -10,13 +10,21 @@ const Bills = sequelize.define(
       allowNull: false,
       primaryKey: true,
     },
-    premise_id: {
+    premise_ID: {
       type: Sequelize.INT,
       allowNull: false,
+      references: {
+        model: "premise",
+        key: "Premise_ID",
+      },
     },
-    tarrif_id: {
+    member_ID: {
       type: Sequelize.STRING(255),
       allowNull: false,
+      references: {
+        model: "member",
+        key: "Member_ID",
+      },
 
       sequelize,
       tableName: "bills",
@@ -26,7 +34,18 @@ const Bills = sequelize.define(
           name: "PRIMARY",
           unique: true,
           using: "BTREE",
-          fields: [{ name: "bill_id" }],
+          fields: [{ name: "bill_ID" }],
+          // ibfk : innodb foreign key
+        },
+        {
+          name: "bills_ibfk_1",
+          using: "BTREE",
+          fields: [{ name: "Premise_ID" }],
+        },
+        {
+          name: "bills_ibfk_2",
+          using: "BTREE",
+          fields: [{ name: "User_ID" }],
         },
       ],
     },

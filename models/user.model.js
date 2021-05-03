@@ -1,32 +1,45 @@
 import Sequelize from "sequelize";
 import { sequelize } from "../db/dbConnect.js";
 
-const Routes = sequelize.define(
-  "route",
+const Users = sequelize.define(
+  "user",
   {
-    Route_ID: {
+    UserID: {
       autoIncrement: true,
       type: Sequelize.INTEGER,
       allowNull: false,
       primaryKey: true,
     },
-    Route_name: {
+    FirstName: {
+      type: Sequelize.STRING(100),
+      allowNull: false,
+    },
+    LastName: {
+      type: Sequelize.STRING(100),
+      allowNull: false,
+    },
+    Email: {
+      type: Sequelize.STRING(255),
+      allowNull: false,
+    },
+    Password: {
       type: Sequelize.STRING(255),
       allowNull: true,
     },
   },
   {
     sequelize,
-    tableName: "route",
+    tableName: "user",
     timestamps: false,
     indexes: [
       {
         name: "PRIMARY",
         unique: true,
         using: "BTREE",
-        fields: [{ name: "Route_ID" }],
+        fields: [{ name: "UserID" }],
       },
     ],
   }
 );
-export default Routes;
+
+export default Users;
