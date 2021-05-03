@@ -35,7 +35,7 @@ const Members = sequelize.define(
           name: "PRIMARY",
           unique: true,
           using: "BTREE",
-          fields: [{ name: "member_id" }],
+          fields: [{ name: "Member_id" }],
         },
       ],
     },

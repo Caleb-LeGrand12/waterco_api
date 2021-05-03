@@ -4,13 +4,13 @@ const Bills = sequelize.define(
   "bills",
 
   {
-    bill_id: {
+    Bill_id: {
       autoIncrement: true,
       type: Sequelize.INT,
       allowNull: false,
       primaryKey: true,
     },
-    premise_ID: {
+    Premise_ID: {
       type: Sequelize.INT,
       allowNull: false,
       references: {
@@ -18,7 +18,7 @@ const Bills = sequelize.define(
         key: "Premise_ID",
       },
     },
-    member_ID: {
+    Member_ID: {
       type: Sequelize.STRING(255),
       allowNull: false,
       references: {
@@ -34,9 +34,9 @@ const Bills = sequelize.define(
           name: "PRIMARY",
           unique: true,
           using: "BTREE",
-          fields: [{ name: "bill_ID" }],
-          // ibfk : innodb foreign key
+          fields: [{ name: "Bill_ID" }],
         },
+        // ibfk : innodb foreign key
         {
           name: "bills_ibfk_1",
           using: "BTREE",
