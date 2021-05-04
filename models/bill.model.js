@@ -2,7 +2,7 @@ import { sequelize } from "../db/dbConnect.js";
 import Sequelize from "sequelize";
 
 const Bills = sequelize.define(
-  "bills",
+  "bill",
 
   {
     Bill_id: {

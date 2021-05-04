@@ -24,7 +24,7 @@ const Members = sequelize.define(
       allowNull: false,
     },
     Member_password: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.STRING,
       allowNull: false,
 
       sequelize,

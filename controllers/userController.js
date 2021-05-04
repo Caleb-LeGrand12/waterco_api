@@ -13,9 +13,10 @@ export async function addUser(req, res) {
       let userObj = {
         Email: req.body.Email,
         Password: hash,
-        FirstName: req.body.First_name,
-        LastName: req.body.Last_name,
+        First_name: req.body.First_name,
+        Last_name: req.body.Last_name,
       };
+
       let user = await Users.create(userObj);
       if (user) {
         res.status(200).json({

@@ -24,7 +24,7 @@ const Users = sequelize.define(
     },
     Password: {
       type: Sequelize.STRING(255),
-      allowNull: true,
+      allowNull: false,
     },
   },
   {
@@ -36,7 +36,7 @@ const Users = sequelize.define(
         name: "PRIMARY",
         unique: true,
         using: "BTREE",
-        fields: [{ name: "UserID" }],
+        fields: [{ name: "User_ID" }],
       },
     ],
   }

@@ -9,10 +9,10 @@ export async function addMember(req, res) {
   try {
     bcrypt.hash(req.body.Password, 10).then(async (hash) => {
       let userObj = {
-        Email: req.body.Email,
-        Password: hash,
-        FirstName: req.body.First_name,
-        LastName: req.body.Last_name,
+        Member_email: req.body.Member_email,
+        Member_password: hash,
+        First_Name: req.body.First_name,
+        Last_Name: req.body.Last_name,
       };
       let member = await Members.create(userObj);
       if (member) {

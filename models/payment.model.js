@@ -20,7 +20,7 @@ const Payments = sequelize.define(
         key: "BID",
       },
     },
-    Amount_paid: {
+    Amount_Paid: {
       type: Sequelize.INTEGER,
       allowNull: false,
     },
