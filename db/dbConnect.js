@@ -24,5 +24,5 @@ sequelize
     console.log(">>>>>>>>>>>>Connection Successful<<<<<<<<<<<<<<");
   })
   .catch((err) => {
-    console.log("Connection Failed: ", err);
+    console.log(">>>>>>>>>>>>>Connection Failed: ", err);
   });
