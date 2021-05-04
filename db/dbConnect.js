@@ -21,7 +21,7 @@ export const sequelize = new Sequelize(
 sequelize
   .authenticate()
   .then(() => {
-    console.log("Connection Successful");
+    console.log(">>>>>>>>>>>>Connection Successful<<<<<<<<<<<<<<");
   })
   .catch((err) => {
     console.log("Connection Failed: ", err);
