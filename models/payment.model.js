@@ -12,7 +12,7 @@ const Payments = sequelize.define(
       primaryKey: true,
     },
 
-    Bill_ID: {
+    Bill_id: {
       type: Sequelize.INTEGER,
       allowNull: true,
       references: {
@@ -28,7 +28,7 @@ const Payments = sequelize.define(
       type: Sequelize.INTEGER,
       allowNull: true,
     },
-    PremiseId: {
+    Premise_ID: {
       type: Sequelize.INTEGER,
       allowNull: false,
       references: {

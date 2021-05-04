@@ -1,4 +1,4 @@
-import Bills from "../models/bill.model";
+import Bills from "../models/bill.model.js";
 
 //Add a Bill
 export async function captureBill(req, res) {

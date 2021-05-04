@@ -4,17 +4,17 @@ import { sequelize } from "../db/dbConnect.js";
 const Users = sequelize.define(
   "user",
   {
-    UserID: {
+    User_ID: {
       autoIncrement: true,
       type: Sequelize.INTEGER,
       allowNull: false,
       primaryKey: true,
     },
-    FirstName: {
+    First_name: {
       type: Sequelize.STRING(100),
       allowNull: false,
     },
-    LastName: {
+    Last_name: {
       type: Sequelize.STRING(100),
       allowNull: false,
     },

@@ -1,5 +1,5 @@
 import express from "express";
-import { captureBill, viewBill } from "../controllers/billController";
+import { captureBill, viewBill } from "../controllers/billController.js";
 
 const billsRouter = express.Router();
 

@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
-import Members from "../models/member.model";
+import Members from "../models/member.model.js";
 
 dotenv.config();
 

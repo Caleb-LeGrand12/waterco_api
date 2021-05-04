@@ -1,4 +1,5 @@
-const Sequelize = require("sequelize");
+import { sequelize } from "../db/dbConnect.js";
+import Sequelize from "sequelize";
 
 const Bills = sequelize.define(
   "bills",
@@ -6,12 +7,12 @@ const Bills = sequelize.define(
   {
     Bill_id: {
       autoIncrement: true,
-      type: Sequelize.INT,
+      type: Sequelize.INTEGER,
       allowNull: false,
       primaryKey: true,
     },
     Premise_ID: {
-      type: Sequelize.INT,
+      type: Sequelize.INTEGER,
       allowNull: false,
       references: {
         model: "premise",
@@ -34,7 +35,7 @@ const Bills = sequelize.define(
           name: "PRIMARY",
           unique: true,
           using: "BTREE",
-          fields: [{ name: "Bill_ID" }],
+          fields: [{ name: "Bill_id" }],
         },
         // ibfk : innodb foreign key
         {

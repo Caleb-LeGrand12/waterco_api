@@ -25,7 +25,7 @@ function initModels(sequelize) {
   premise.belongsTo(route, { as: "RID_route", foreignKey: "Route_ID" });
 
   return {
-    billing,
+    bill,
     customer,
     payment,
     premise,

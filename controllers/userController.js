@@ -1,8 +1,8 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-import Users from "../models/user.model";
-import Members from "../models/member.model";
+import Users from "../models/user.model.js";
+import Members from "../models/member.model.js";
 
 dotenv.config();
 
@@ -141,7 +141,7 @@ export async function updateUserPass(req, res) {
         Password: hash,
       };
       let user = await Users.update(userObj, {
-        where: { UserID: req.params.id },
+        where: { User_ID: req.params.id },
       });
       if (user) {
         res.status(200).json({
@@ -169,7 +169,7 @@ export async function updateUserPass(req, res) {
 export async function updateUser(req, res) {
   try {
     let updateduser = await Users.update(req.body, {
-      where: { UserID: req.params.id },
+      where: { User_ID: req.params.id },
     });
     if (updateduser) {
       res.json({
@@ -194,13 +194,15 @@ export async function updateUser(req, res) {
 
 // Delete user
 export async function deleteUser(req, res) {
+  const User_ID = req.params.id;
+
   try {
     let userToDelete = await Users.findAll({
-      where: { UserID: req.params.id },
+      where: { User_ID },
     });
     if (userToDelete) {
       let deleteduser = await Users.destroy({
-        where: { UserID: req.params.id },
+        where: { User_ID },
       });
       if (deleteduser) {
         res.json({

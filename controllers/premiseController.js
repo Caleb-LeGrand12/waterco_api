@@ -1,4 +1,4 @@
-import Premises from "../models/premise.model";
+import Premises from "../models/premise.model.js";
 
 //Add a Premise
 export async function addPremise(req, res) {

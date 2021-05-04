@@ -1,7 +1,6 @@
 import express from "express";
 import {
   addMember,
-  viewAllMembers,
   viewMember,
   updateMember,
   deleteMember,
@@ -15,9 +14,6 @@ membersRouter.post("/", addMember);
 
 //View a member members/:id
 membersRouter.get("/:id", viewMember);
-
-//View all members members/
-membersRouter.get("/", viewAllMembers);
 
 //Update member record members/
 membersRouter.put("/:id", updateMember);

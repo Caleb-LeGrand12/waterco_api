@@ -4,7 +4,7 @@ import {
   viewAllRoutes,
   viewRoute,
   updateRoute,
-} from "../controllers/routesController";
+} from "../controllers/routesController.js";
 
 const routesRouter = express.Router();
 

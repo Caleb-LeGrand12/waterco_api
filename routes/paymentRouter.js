@@ -4,7 +4,7 @@ import {
   viewPayment,
   viewAllPayments,
   viewPaymentsByPremise,
-} from "../controllers/paymentController";
+} from "../controllers/paymentController.js";
 
 const paymentsRouter = express.Router();
 

@@ -5,7 +5,7 @@ import {
   viewPremise,
   viewPremisesByMember,
   viewPremisesByRoute,
-} from "../controllers/premiseController";
+} from "../controllers/premiseController.js";
 
 const premisesRouter = express.Router();
 

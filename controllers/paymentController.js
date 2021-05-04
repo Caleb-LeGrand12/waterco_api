@@ -1,4 +1,4 @@
-import Payments from "../models/payment.model";
+import Payments from "../models/payment.model.js";
 
 //Add a payment
 export async function capturePayment(req, res) {

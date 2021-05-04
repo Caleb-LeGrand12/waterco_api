@@ -8,7 +8,7 @@ import {
   updateUserPass,
   deleteUser,
   viewAllMembers,
-} from "../controllers/";
+} from "../controllers/userController.js";
 // import { authenticate } from "../middlewares/auth.js";
 
 const usersRouter = express.Router();
