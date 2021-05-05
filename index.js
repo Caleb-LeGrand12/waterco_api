@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(router);
 
-const port = process.env.PORT || "5001";
+const port = process.env.PORT || "5012";
 
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to The WaterCo API" });
