@@ -29,7 +29,7 @@ const Bills = sequelize.define(
 
       sequelize,
       tableName: "bills",
-      timestamps: true,
+      timestamps: false,
       indexes: [
         {
           name: "PRIMARY",
@@ -46,7 +46,7 @@ const Bills = sequelize.define(
         {
           name: "bills_ibfk_2",
           using: "BTREE",
-          fields: [{ name: "User_ID" }],
+          fields: [{ name: "Member_ID" }],
         },
       ],
     },

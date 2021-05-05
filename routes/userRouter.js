@@ -9,30 +9,30 @@ import {
   deleteUser,
   viewAllMembers,
 } from "../controllers/userController.js";
-// import { authenticate } from "../middlewares/auth.js";
+import { authenticate } from "../middlewares/auth.js";
 
 const usersRouter = express.Router();
 
-//Add a User - Sign Up - Authenticate.
+//Add a User - Sign Up
 usersRouter.post("/", addUser);
 
-//Add a User - Sign In - No need of Authentication
+//Add a User - Sign In
 usersRouter.post("/signin", signIn);
 
-//View a User users/:id - Authenticate.
-usersRouter.get("/:id", viewUser);
+//View a User users/:id
+usersRouter.get("/:id", authenticate, viewUser);
 
-//View all Users users/ - Authenticate.
+//View all Users users
 usersRouter.get("/", viewAllUsers);
 
 //Update user record users/id
-usersRouter.put("/:id", updateUser);
+usersRouter.put("/:id", authenticate, updateUser);
 
 //Update user password users/pass/id
-usersRouter.put("/pass/:id", updateUserPass);
+usersRouter.put("/pas/:id", authenticate, updateUserPass);
 
 //Close user account
-usersRouter.delete("/:id", deleteUser);
+usersRouter.delete("/:id", authenticate, deleteUser);
 
 usersRouter.get("/", viewAllMembers);
 

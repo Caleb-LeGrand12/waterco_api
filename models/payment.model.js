@@ -40,7 +40,7 @@ const Payments = sequelize.define(
   {
     sequelize,
     tableName: "payment",
-    timestamps: true,
+    timestamps: false,
     indexes: [
       {
         name: "PRIMARY",

@@ -29,7 +29,7 @@ const Members = sequelize.define(
 
       sequelize,
       tableName: "member",
-      timestamps: true,
+      timestamps: false,
       indexes: [
         {
           name: "PRIMARY",
