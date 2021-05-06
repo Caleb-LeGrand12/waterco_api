@@ -7,6 +7,6 @@ const billsRouter = express.Router();
 billsRouter.post("/", captureBill);
 
 //View a bills/:id
-billsRouter.get("/:id", viewBill);
+billsRouter.get("/:Bill_id", viewBill);
 
 export default billsRouter;

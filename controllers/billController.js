@@ -28,12 +28,12 @@ export async function captureBill(req, res) {
 //View a bill
 export async function viewBill(req, res) {
   try {
-    let aBill = await Bills.findAll({ where: { Bill_ID: req.params.id } });
+    let aBill = await Bills.findAll({ where: { Bill_id: req.params.id } });
     if (aBill) {
       res.json({
         success: true,
         message: "Bill record retrieved successfully",
-        data: Abill,
+        data: abill,
       });
     } else {
       res.json({

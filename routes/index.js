@@ -14,5 +14,6 @@ router.use("/payments", paymentsRouter);
 router.use("/premises", premisesRouter);
 router.use("/routes", routesRouter);
 router.use("/users", usersRouter);
+// res.header("Access-Control-Allow-Origin: *");
 
 export default router;
