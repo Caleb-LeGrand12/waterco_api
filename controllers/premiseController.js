@@ -3,7 +3,7 @@ import Premises from "../models/premise.model.js";
 //Add a Premise
 export async function addPremise(req, res) {
   try {
-    let premise = await Premises.create(req.body);
+    let premise = Premises.create(req.body);
     if (premise) {
       res.status(200).json({
         success: true,

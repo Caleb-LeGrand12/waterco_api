@@ -20,20 +20,20 @@ usersRouter.post("/", addUser);
 usersRouter.post("/signin", signIn);
 
 //View a User users/:id
-usersRouter.get("/:id", authenticate, viewUser);
+usersRouter.get("/:id", viewUser);
 
 //View all Users users
 usersRouter.get("/", viewAllUsers);
 
 //Update user record users/id
-usersRouter.put("/:id", authenticate, updateUser);
+usersRouter.put("/:id", updateUser);
 
 //Update user password users/pass/id
-usersRouter.put("/pas/:id", authenticate, updateUserPass);
+usersRouter.put("/pas/:id", updateUserPass);
 
 //Close user account
-usersRouter.delete("/:id", authenticate, deleteUser);
+usersRouter.delete("/:id", deleteUser);
 
-usersRouter.get("/", viewAllMembers);
+usersRouter.get("/:id/members", viewAllMembers);
 
 export default usersRouter;

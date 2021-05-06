@@ -26,9 +26,12 @@ export async function addRoute(req, res) {
 }
 
 //View a route
+
 export async function viewRoute(req, res) {
+  res.set("Access-Control-Allow-Origin", "*");
+
   try {
-    let oneroute = await Routes.findAll({ where: { RID: req.params.id } });
+    let oneroute = await Routes.findAll({ where: { Route_ID: req.params.id } });
     if (oneroute) {
       res.json({
         success: true,

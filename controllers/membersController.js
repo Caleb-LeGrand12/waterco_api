@@ -30,7 +30,7 @@ export async function addMember(req, res) {
 //View a member
 export async function viewMember(req, res) {
   try {
-    let allmembers = await Member.findAll({
+    let allmembers = await Members.findAll({
       where: { Member_ID: req.params.id },
     });
     if (allmembers) {
@@ -57,7 +57,7 @@ export async function viewMember(req, res) {
 //Update member record
 export async function updateMember(req, res) {
   try {
-    let updatemember = await Member.update(req.body, {
+    let updatemember = await Members.update(req.body, {
       where: { Member_ID: req.params.id },
     });
     if (updatemember) {
@@ -84,7 +84,7 @@ export async function updateMember(req, res) {
 //Delete a member
 export async function deleteMember(req, res) {
   try {
-    let deletemember = await Member.destroy({
+    let deletemember = await Members.destroy({
       where: { Member_ID: req.params.id },
     });
     if (deletemember) {
