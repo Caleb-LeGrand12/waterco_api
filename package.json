@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "devStart":"nodemon index.js",
-    "start": "devStart",
+    "start": "npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
