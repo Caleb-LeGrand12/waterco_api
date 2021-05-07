@@ -56,13 +56,13 @@ export async function viewAllBills(req, res) {
     if (allBills) {
       res.json({
         success: true,
-        message: "Member records retrieved successfully",
+        message: "Bill records retrieved successfully",
         data: allBills,
       });
     } else {
       res.json({
         success: true,
-        message: "Member records Not found.",
+        message: "Bill records Not found.",
       });
     }
   } catch (err) {

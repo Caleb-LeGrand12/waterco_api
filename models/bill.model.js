@@ -28,7 +28,7 @@ const Bills = sequelize.define(
       },
 
       sequelize,
-      tableName: "bills",
+      tableName: "bill",
       timestamps: false,
       indexes: [
         {

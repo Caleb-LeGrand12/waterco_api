@@ -1,10 +1,8 @@
 import Members from "../models/member.model.js";
-import bcrypt from "bcryptjs";
 
 //Add a Member
 export async function addMember(req, res) {
   try {
-    // const hashedPasssword = await bcrypt.hash(req.body.password, 10);
     let member = await Members.create(req.body);
     if (member) {
       res.status(200).json({
@@ -27,9 +25,6 @@ export async function addMember(req, res) {
   }
 }
 export async function signIn(req, res) {
-  //Get a user with the email address
-  //Ensure that their password is correct
-  //Create a JWT for them. (For Authenticating Other API Requests)
   try {
     let user = await Users.findOne({ where: { Member_email: req.body.email } });
     if (!user) {
@@ -45,11 +40,7 @@ export async function signIn(req, res) {
         message: "Authentication Failed: Incorrect password.",
       });
     }
-    // let authToken = jwt.sign(
-    //   { Email: user.Email, User_ID: user.User_ID },
-    //   process.env.AUTH_KEY,
-    //   { expiresIn: "1h" }
-    // );
+
     return res.status(200).json({
       status: true,
       message: "User authentication successful",
@@ -59,8 +50,6 @@ export async function signIn(req, res) {
         Email: user.Email,
         UserID: user.User_ID,
       },
-      token: authToken,
-      expiresIn: 3600,
     });
   } catch (err) {
     console.log(err);
