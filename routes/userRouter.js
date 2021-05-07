@@ -1,4 +1,5 @@
 import express from "express";
+import { deleteMember } from "../controllers/membersController.js";
 import {
   addUser,
   viewAllUsers,
@@ -35,5 +36,7 @@ usersRouter.put("/pas/:id", updateUserPass);
 usersRouter.delete("/:id", deleteUser);
 
 usersRouter.get("/:id/members", viewAllMembers);
+
+usersRouter.delete("/:id/members/:id2", deleteMember);
 
 export default usersRouter;

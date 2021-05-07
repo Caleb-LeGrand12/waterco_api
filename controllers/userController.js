@@ -251,3 +251,29 @@ export async function viewAllMembers(req, res) {
     });
   }
 }
+//deleteMember
+
+export async function deleteMember(req, res) {
+  try {
+    let deletemember = await Members.destroy({
+      where: { Member_ID: req.params.id2 },
+    });
+    if (deletemember) {
+      res.json({
+        success: true,
+        message: "Member deleted successfully",
+      });
+    } else {
+      res.json({
+        success: true,
+        message: "Sorry Member not found",
+      });
+    }
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({
+      success: false,
+      message: "Oops!! Something's wrong",
+    });
+  }
+}
