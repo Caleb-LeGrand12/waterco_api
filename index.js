@@ -23,10 +23,7 @@ app.listen(port, () => {
 
 // CORS configuratation
 app.use(function (req, res, next) {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://waterco-uii.herokuapp.com/"
-  );
+  res.setHeader("Access-Control-Allow-Origin", "*");
 
   res.setHeader(
     "Access-Control-Allow-Methods",
