@@ -26,6 +26,50 @@ export async function addMember(req, res) {
     });
   }
 }
+export async function signIn(req, res) {
+  //Get a user with the email address
+  //Ensure that their password is correct
+  //Create a JWT for them. (For Authenticating Other API Requests)
+  try {
+    let user = await Users.findOne({ where: { Member_email: req.body.email } });
+    if (!user) {
+      return res.status(401).json({
+        status: failed,
+        message: "Authentication Failed: User with email address not found.",
+      });
+    }
+
+    if (!response) {
+      return res.status(401).json({
+        status: failed,
+        message: "Authentication Failed: Incorrect password.",
+      });
+    }
+    // let authToken = jwt.sign(
+    //   { Email: user.Email, User_ID: user.User_ID },
+    //   process.env.AUTH_KEY,
+    //   { expiresIn: "1h" }
+    // );
+    return res.status(200).json({
+      status: true,
+      message: "User authentication successful",
+      user: {
+        FirstName: req.body.First_name,
+        LastName: req.body.Last_name,
+        Email: user.Email,
+        UserID: user.User_ID,
+      },
+      token: authToken,
+      expiresIn: 3600,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      success: false,
+      message: "Oopss! Something is wrong...",
+    });
+  }
+}
 
 //View a member
 export async function viewMember(req, res) {

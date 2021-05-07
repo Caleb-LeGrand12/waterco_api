@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(router);
 
-const port = process.env.PORT || "5015";
+const port = process.env.PORT || "5016";
 
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to The WaterCo API" });
@@ -19,31 +19,6 @@ app.get("/", (req, res) => {
 
 app.listen(port, () => {
   console.log(`WaterCo API Running on Port ${port}`);
-});
-
-// CORS configuratation
-app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With,content-type",
-    "origin",
-    "Authorization"
-  );
-
-  res.setHeader("Access-Control-Allow-Credentials", true);
-
-  if ("OPTIONS" == req.method) {
-    res.sendStatus(200);
-  } else {
-    next();
-  }
 });
 
 export default app;
