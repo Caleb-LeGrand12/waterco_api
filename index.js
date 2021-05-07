@@ -21,4 +21,29 @@ app.listen(port, () => {
   console.log(`WaterCo API Running on Port ${port}`);
 });
 
+// CORS configuratation
+app.use(function (req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  );
+
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With,content-type",
+    "origin",
+    "Authorization"
+  );
+
+  res.setHeader("Access-Control-Allow-Credentials", true);
+
+  if ("OPTIONS" == req.method) {
+    res.sendStatus(200);
+  } else {
+    next();
+  }
+});
+
 export default app;
