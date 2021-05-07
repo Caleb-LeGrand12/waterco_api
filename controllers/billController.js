@@ -49,3 +49,27 @@ export async function viewBill(req, res) {
     });
   }
 }
+
+export async function viewAllBills(req, res) {
+  try {
+    let allBills = await Bills.findAll();
+    if (allBills) {
+      res.json({
+        success: true,
+        message: "Member records retrieved successfully",
+        data: allBills,
+      });
+    } else {
+      res.json({
+        success: true,
+        message: "Member records Not found.",
+      });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      success: false,
+      message: "Oopss! Something is wrong...",
+    });
+  }
+}

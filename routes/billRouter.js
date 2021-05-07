@@ -1,5 +1,9 @@
 import express from "express";
-import { captureBill, viewBill } from "../controllers/billController.js";
+import {
+  captureBill,
+  viewBill,
+  viewAllBills,
+} from "../controllers/billController.js";
 
 const billsRouter = express.Router();
 
@@ -9,4 +13,7 @@ billsRouter.post("/", captureBill);
 //View a bills/:id
 billsRouter.get("/:id", viewBill);
 
+// view all bills
+
+illsRouter.get("/", viewAllBills;
 export default billsRouter;
