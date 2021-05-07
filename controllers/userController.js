@@ -9,26 +9,27 @@ dotenv.config();
 //Add a User - Sign Up
 export async function addUser(req, res) {
   try {
-    let userObj = {
-      Email: req.body.Email,
-      Password: req.body.Password,
-      First_name: req.body.First_name,
-      Last_name: req.body.Last_name,
-    };
-
-    let user = await Users.create(userObj);
-    if (user) {
-      res.status(200).json({
-        success: true,
-        message: "User created successfully",
-        data: user,
-      });
-    } else {
-      res.status(200).json({
-        success: true,
-        message: "User could not be created at this time",
-      });
-    }
+    bcrypt.hash(req.body.Password, 10).then(async (hash) => {
+      let userObj = {
+        Email: req.body.Email,
+        Password: req.body.Password,
+        First_name: req.body.First_name,
+        Last_name: req.body.Last_name,
+      };
+      let user = await Users.create(userObj);
+      if (user) {
+        res.status(200).json({
+          success: true,
+          message: "User created successfully",
+          data: user,
+        });
+      } else {
+        res.status(200).json({
+          success: true,
+          message: "User could not be created at this time",
+        });
+      }
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json({
@@ -108,8 +109,11 @@ export async function signIn(req, res) {
           message: "Authentication Failed: Incorrect password.",
         });
       }
-      // let authToken = jwt.sign({ Email: user.Email, UserID: user.UserID },
-      //     process.env.AUTH_KEY, { expiresIn: "1h" });
+      let authToken = jwt.sign(
+        { Email: user.Email, User_ID: user.User_ID },
+        process.env.AUTH_KEY,
+        { expiresIn: "1h" }
+      );
       return res.status(200).json({
         status: true,
         message: "User authentication successful",
@@ -119,7 +123,7 @@ export async function signIn(req, res) {
           Email: user.Email,
           UserID: user.User_ID,
         },
-        // token: authToken,
+        token: authToken,
         expiresIn: 3600,
       });
     });

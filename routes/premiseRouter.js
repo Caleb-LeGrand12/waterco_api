@@ -21,7 +21,7 @@ premisesRouter.get("/", viewAllPremises);
 //View premises by member premises/member/:id
 premisesRouter.get("/member/:id", viewPremisesByMember);
 
-//View premises by member premises/route/:id
+//View premises by route premises/route/:id
 premisesRouter.get("/route/:id", viewPremisesByRoute);
 
 export default premisesRouter;

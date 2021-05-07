@@ -107,7 +107,9 @@ export async function viewPremisesByMember(req, res) {
 // View Premises by route
 export async function viewPremisesByRoute(req, res) {
   try {
-    let aPremise = await Premises.findAll({ where: { RID: req.params.id } });
+    let aPremise = await Premises.findAll({
+      where: { Route_ID: req.params.id },
+    });
     if (aPremise) {
       res.json({
         success: true,
