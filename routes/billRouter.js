@@ -15,5 +15,5 @@ billsRouter.get("/:id", viewBill);
 
 // view all bills
 
-illsRouter.get("/", viewAllBills);
+billsRouter.get("/", viewAllBills);
 export default billsRouter;
